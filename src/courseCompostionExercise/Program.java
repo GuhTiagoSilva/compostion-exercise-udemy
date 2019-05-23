@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Client;
+import entities.Order;
 import entities.OrderItem;
 import entities.OrderStatus;
 import entities.Product;
@@ -31,8 +32,10 @@ public class Program {
 
 		System.out.println("Enter order data: ");
 		System.out.print("Status: ");
-		OrderStatus.valueOf(sc.next());
+		OrderStatus status = OrderStatus.valueOf(sc.next());
 
+		Order order = new Order(new Date(), client, status );
+		
 		System.out.print("How many items to this order?");
 		int n = sc.nextInt();
 
@@ -46,22 +49,18 @@ public class Program {
 			System.out.print("Quantity: ");
 			int quantity = sc.nextInt();
 			OrderItem item = new OrderItem(quantity, productPrice, new Product(productName));
-
+			
 		}
 
+		
+		
 		System.out.println("");
 
 		System.out.println("ORDER SUMMARY: ");
-		System.out.print("Order moment: ");
-		Date moment = dateFormat1.parse(sc.nextLine());
-
-		System.out.print("Order Status: ");
-		OrderStatus.valueOf(sc.next());
-
-		System.out.println(client);
-
-		System.out.println("Order Items: ");
-
+		
+		System.out.println(order);
+		
+		
 		sc.close();
 	}
 

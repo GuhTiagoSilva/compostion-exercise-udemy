@@ -3,10 +3,6 @@ package entities;
 import java.util.Date;
 
 public class Client {
-	@Override
-	public String toString() {
-		return "Client [name=" + name + ", email=" + email + ", birthDate=" + birthDate + "]";
-	}
 
 	private String name;
 	private String email;
